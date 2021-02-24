@@ -4,7 +4,9 @@
 
 #include<iostream>
 #include<fstream>
+#include"sortFuncts.h"
 using namespace std;
+
 
 int main(){
 	
@@ -12,7 +14,8 @@ int main(){
 
 	file.open("data1.txt");
 	if(file.is_open()){
-
+	
+{
 	}
 	else {
 		cout << "File failed to open.\n";
