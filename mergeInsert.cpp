@@ -4,18 +4,24 @@
 
 #include<iostream>
 #include<fstream>
+#include<
 #include"sortFuncts.h"
 using namespace std;
 
 
 int main(){
 	
+	
 	fstream file;
+	double arr[500], num;
 
 	file.open("data1.txt");
 	if(file.is_open()){
 	
-{
+		while(file.good()){
+			while(file >> num 
+
+
 	}
 	else {
 		cout << "File failed to open.\n";
