@@ -5,7 +5,7 @@
 #include"sortFuncts.h"
 using namespace std;
 
-void mergeSort(double *arr[], int left, int right){
+void mergeSort(double arr[], int left, int right){
 
 	if(left >= right){
 		return;
@@ -18,11 +18,11 @@ void mergeSort(double *arr[], int left, int right){
 	merge(arr, left, middle, right);
 }
 
-void merge(double *arr[], int left, int middle, int right){
+void merge(double arr[], int left, int middle, int right){
 
 	// Establish number of elements for 2 arrays and create the arrays
-	int elementsL = middle - left + 1;
-	int elementsR = right - middle;
+	int elementsL = (middle - left + 1);
+	int elementsR = (right - middle);
 	double leftArr[elementsL], rightArr[elementsR];
 
 	// Copy initial array into the left and right arrays

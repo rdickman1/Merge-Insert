@@ -2,4 +2,4 @@
 *.txt
 *.obj
 ./build
-
+*./vs
