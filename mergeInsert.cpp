@@ -13,29 +13,35 @@ using namespace std;
 int main(){
 	
 	
-	fstream file;
+	ifstream file;
 	string line;
-	stringstream s(line);
+	istringstream s;
 	double arr[500], num;
 
 	file.open("data1.txt");
 	if(file.is_open()){
 	
-		int count = 0;
-
+		
 		while(file.good()){
-
+			
+			int count = 0;
+			s.clear();
 			getline(file, line);
+			s.str(line);	
 
 			while(s >> num){
 				arr[count] = num;
 				count++;
 			}
+		
+			for(int i =0; i < count; i++){
+				cout << arr[i] << " ";
+			}
+
+			cout << endl;
+			
 		}
 
-		for(int i = 0; i < count; i++){
-			cout << arr[i] << " ";
-		}
 	}
 	else {
 		cout << "File failed to open.\n";
