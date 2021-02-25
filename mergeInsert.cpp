@@ -39,7 +39,12 @@ int main(){
 			}
 
 			cout << endl;
-			
+			mergeSort(arr, 0, count);
+
+			for(int i = 0; i < count; i++){
+				cout << arr[i] << " ";
+			}
+			cout << endl;
 		}
 
 	}
