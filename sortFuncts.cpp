@@ -11,8 +11,7 @@ void mergeSort(double arr[], int left, int right){
 		return;
 	}
 
-	int middle = left + (right - 1) / 2;
-		cout << middle;
+	int middle = (left + (right - 1)) / 2;
 	mergeSort(arr, left, middle);
 	mergeSort(arr, middle + 1, right);
 	merge(arr, left, middle, right);
@@ -26,7 +25,7 @@ void merge(double arr[], int left, int middle, int right){
 	double leftArr[elementsL], rightArr[elementsR];
 
 	// Copy initial array into the left and right arrays
-	for(int i = 0; i< elementsL; i++) {
+	for(int i = 0; i < elementsL; i++) {
 		leftArr[i] = arr[left + i];
 	}
 
@@ -37,7 +36,7 @@ void merge(double arr[], int left, int middle, int right){
 	// Iterators for combining the two arrays back to the original in order
 	int i = 0;
 	int j = 0;
-	int k = left;
+	int k = 0;
 
 	// Puts the elements back in sorted order
 	while(i < elementsL && j < elementsR){

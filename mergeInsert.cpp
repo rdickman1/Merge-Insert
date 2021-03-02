@@ -16,7 +16,8 @@ int main(){
 	ifstream file;
 	string line;
 	istringstream s;
-	double arr[500], num;
+	double arr[500];
+	double num;
 
 	file.open("data1.txt");
 	if(file.is_open()){
@@ -25,7 +26,6 @@ int main(){
 		while(file.good()){
 			
 			int count = 0;
-			s.clear();
 			getline(file, line);
 			s.str(line);	
 
@@ -39,12 +39,18 @@ int main(){
 			}
 
 			cout << endl;
+		cout << arr[0] << " count-> " << count << endl;
+
 			mergeSort(arr, 0, count);
+
+			cout << arr[0] << " count-> " << count << endl;
 
 			for(int i = 0; i < count; i++){
 				cout << arr[i] << " ";
 			}
 			cout << endl;
+
+			s.clear();
 		}
 
 	}
