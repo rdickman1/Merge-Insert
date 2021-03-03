@@ -5,16 +5,20 @@
 #include"sortFuncts.h"
 using namespace std;
 
+// Recursive sorting function that incurs an insertion sort when the segment is less than 7 elements long
 void mergeSort(double arr[], int left, int right){
-
+	
+	// Returns when sorting is complete
 	if(left >= right){
 		return;
 	}
 	
+	// Check for small length of segment and use insertion sort if satisfied
 	if((right - left) <= 6){
 		insertSort(arr, left, right);
 	}
-	else{	
+	else {	
+		// Recirsively splits array and compares values before merging temporary arrays back together
 		int middle = (left + right) / 2;
 		mergeSort(arr, left, middle);
 		mergeSort(arr, middle + 1, right);
@@ -23,6 +27,7 @@ void mergeSort(double arr[], int left, int right){
 	}
 
 
+// Merges smaller temporary arrays back together
 void merge(double arr[], int left, int middle, int right){
 
 	// Establish number of elements for 2 arrays and create the arrays
@@ -74,16 +79,19 @@ void merge(double arr[], int left, int middle, int right){
 
 }
 
-
+// Performs Insertion sort
 void insertSort(double arr[], int left, int right) {
 	
+	// Key value is current value being compared backwards
 	double key;
 	int pos;
 
+	// For each value, compare backwards against the alreday sorted parts of the array
 	for(int i = left; i < right + 1; i++){
 		key = arr[i];
 		pos = i - 1;
 
+		// Moves value back until correct position is reached
 		while(pos >= 0 && arr[pos] > key){
 
 			arr[pos + 1] = arr[pos];
