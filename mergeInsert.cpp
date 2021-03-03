@@ -14,14 +14,22 @@ int main(){
 	
 	
 	ifstream file;
+	ofstream out;
 	string line;
 	istringstream s;
-	double arr[500];
+	double arr[500] = {0};
 	double num;
 
-	file.open("data1.txt");
-	if(file.is_open()){
 	
+	file.open("data1.txt");
+	out.open("out1.txt");
+	
+	if(file.is_open()){
+		
+		if(!out.is_open()){
+			cout << "Output file failed to open.\n";
+			return 2;
+		}
 		
 		while(file.good()){
 			
@@ -33,22 +41,13 @@ int main(){
 				arr[count] = num;
 				count++;
 			}
-		
-			for(int i =0; i < count; i++){
-				cout << arr[i] << " ";
-			}
-
-			cout << endl;
-		cout << arr[0] << " count-> " << count << endl;
-
-			mergeSort(arr, 0, count);
-
-			cout << arr[0] << " count-> " << count << endl;
+					
+			mergeSort(arr, 0, count - 1);
 
 			for(int i = 0; i < count; i++){
-				cout << arr[i] << " ";
+				out << arr[i] << " ";
 			}
-			cout << endl;
+			out << endl;
 
 			s.clear();
 		}
@@ -58,6 +57,9 @@ int main(){
 		cout << "File failed to open.\n";
 		cin.get();
 	}
+
+	file.close();
+	out.close();
 
 	return 0;
 

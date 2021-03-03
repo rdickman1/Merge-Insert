@@ -10,19 +10,25 @@ void mergeSort(double arr[], int left, int right){
 	if(left >= right){
 		return;
 	}
+	
+	if((right - left) <= 6){
+		insertSort(arr, left, right);
+	}
+	else{	
+		int middle = (left + right) / 2;
+		mergeSort(arr, left, middle);
+		mergeSort(arr, middle + 1, right);
+		merge(arr, left, middle, right);
+		}
+	}
 
-	int middle = (left + (right - 1)) / 2;
-	mergeSort(arr, left, middle);
-	mergeSort(arr, middle + 1, right);
-	merge(arr, left, middle, right);
-}
 
 void merge(double arr[], int left, int middle, int right){
 
 	// Establish number of elements for 2 arrays and create the arrays
 	int elementsL = (middle - left + 1);
 	int elementsR = (right - middle);
-	double leftArr[elementsL], rightArr[elementsR];
+	double leftArr[500], rightArr[500];
 
 	// Copy initial array into the left and right arrays
 	for(int i = 0; i < elementsL; i++) {
@@ -36,7 +42,7 @@ void merge(double arr[], int left, int middle, int right){
 	// Iterators for combining the two arrays back to the original in order
 	int i = 0;
 	int j = 0;
-	int k = 0;
+	int k = left;
 
 	// Puts the elements back in sorted order
 	while(i < elementsL && j < elementsR){
@@ -65,9 +71,25 @@ void merge(double arr[], int left, int middle, int right){
 		k++;
 	}
 
+
 }
 
 
-void insertSort() {
+void insertSort(double arr[], int left, int right) {
+	
+	double key;
+	int pos;
 
+	for(int i = left; i < right + 1; i++){
+		key = arr[i];
+		pos = i - 1;
+
+		while(pos >= 0 && arr[pos] > key){
+
+			arr[pos + 1] = arr[pos];
+			pos--;
+		}
+
+		arr[pos + 1] = key;
+	}
 }

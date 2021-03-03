@@ -3,5 +3,5 @@
 
 void mergeSort(double*, int, int);
 void merge(double*, int, int, int);
-void insertSort();
+void insertSort(double*, int, int);
 
